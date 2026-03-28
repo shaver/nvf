@@ -232,7 +232,17 @@
       # coding.yanky
       yanky-nvim.enable = true;
       # snacks.nvim (LazyVim uses it for many built-in features)
-      snacks-nvim.enable = true;
+      snacks-nvim = {
+        enable = true;
+        setupOpts = {
+          terminal.enabled = true;
+          lazygit.enabled = true;
+          notifier.enabled = true;
+          bigfile.enabled = true;
+          quickfile.enabled = true;
+          bufdelete.enabled = true;
+        };
+      };
       # editor.grug-far — find and replace UI
       grug-far-nvim.enable = true;
       # flash.nvim — enhanced search/navigation (LazyVim default)
@@ -515,8 +525,8 @@
         map("n", "[w", function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN }) end,  { desc = "Prev Warning" })
 
         -- inspect highlight / treesitter
-        map("n", "<leader>ui", vim.show_pos,  { desc = "Inspect Pos" })
-        map("n", "<leader>uI", vim.show_tree, { desc = "Inspect Tree" })
+        map("n", "<leader>ui", vim.show_pos,                        { desc = "Inspect Pos" })
+        map("n", "<leader>uI", vim.treesitter.inspect_tree,         { desc = "Inspect Tree" })
 
         -- windows
         map("n", "<leader>w",  "<C-w>",       { desc = "Windows", remap = true })
