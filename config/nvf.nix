@@ -95,7 +95,7 @@
       toml.enable = true;
 
       # lang.typescript
-      ts.enable = true;
+      typescript.enable = true;
 
       # lang.yaml
       yaml.enable = true;
